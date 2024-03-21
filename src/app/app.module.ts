@@ -10,12 +10,23 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProductAddComponent } from './components/product-add/product-add.component';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { CategoryListComponent } from './components/category/category-list/category-list.component';
+import { CategoryAddComponent } from './components/category/category-add/category-add.component';
+import { DetailProductComponent } from './components/cart/detail-product/detail-product.component';
+import { HeaderUserComponent } from './components/header-user/header-user.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SumaryOrderComponent } from './components/orders/sumary-order/sumary-order.component';
 
 const routes : Routes = [
   {path:'', component:HomeComponent},
   {path:'admin/product', component:ProductListComponent},
   {path:'admin/product/addproduct', component:ProductAddComponent},
   {path:'admin/product/update/:id', component:ProductAddComponent},
+  {path:'admin/category', component:CategoryListComponent},
+  {path:'admin/category/add', component:CategoryAddComponent},
+  {path:'admin/category/update/:id', component:CategoryAddComponent},
+  {path:'cart/detailproduct/:id', component:DetailProductComponent},
+  {path:'cart/sumary', component:SumaryOrderComponent},
 ];
 
 @NgModule({
@@ -24,12 +35,18 @@ const routes : Routes = [
     HomeComponent,
     ProductListComponent,
     HeaderAdminComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    CategoryListComponent,
+    CategoryAddComponent,
+    DetailProductComponent,
+    HeaderUserComponent,
+    SumaryOrderComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     ToastrModule.forRoot(),
 
