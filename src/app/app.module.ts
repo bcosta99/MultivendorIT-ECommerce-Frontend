@@ -16,6 +16,7 @@ import { DetailProductComponent } from './components/cart/detail-product/detail-
 import { HeaderUserComponent } from './components/header-user/header-user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SumaryOrderComponent } from './components/orders/sumary-order/sumary-order.component';
+import { PaymentSuccessComponent } from './components/payment-success/payment-success.component';
 
 const routes : Routes = [
   {path:'', component:HomeComponent},
@@ -27,6 +28,8 @@ const routes : Routes = [
   {path:'admin/category/update/:id', component:CategoryAddComponent},
   {path:'cart/detailproduct/:id', component:DetailProductComponent},
   {path:'cart/sumary', component:SumaryOrderComponent},
+  {path:'payment/success', component:PaymentSuccessComponent}
+  
 ];
 
 @NgModule({
@@ -40,7 +43,8 @@ const routes : Routes = [
     CategoryAddComponent,
     DetailProductComponent,
     HeaderUserComponent,
-    SumaryOrderComponent
+    SumaryOrderComponent,
+    PaymentSuccessComponent
   ],
   imports: [
     BrowserModule,
