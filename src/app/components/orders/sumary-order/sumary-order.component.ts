@@ -25,15 +25,26 @@ export class SumaryOrderComponent implements OnInit {
   orderProducts:OrderProduct [] = [];
   userId : number = 1;
 
-  constructor(private cartService:CartService, private userService:UserService, private orderService:OrderService, private paymentService:PaymentService, private sessionStorage:SessionStorageService){
+  constructor(private cartService:CartService,
+    private userService:UserService,
+    private orderService:OrderService,
+    private paymentService:PaymentService,
+    private sessionStorage:SessionStorageService
+  ){
 
   }
 
 
   ngOnInit(): void {
+    console.log('ngOnInit');
     this.items = this.cartService.convertToListFromMap();
     this.totalCart = this.cartService.totalCart();
+    this.userId = this.sessionStorage.getItem('token').id;
     this.getUserById(this.userId);
+    setTimeout(
+      ()=>{
+        this.sessionStorage.removeItem('token')
+      }, 600000);
   }
 
   generateOrder(){
